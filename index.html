@@ -1,0 +1,678 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel= "stylesheet" href="css/jquery.mobile-1.4.5.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<script>
+function show(shown, hidden) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden).style.display='none';
+  return false;
+}
+</script>
+
+<style>  
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+</style>
+</head>
+<body>
+	
+  <div id="login">
+  <center> <h1> ColeCompras </h1> </center>
+    <label>Usuario : </label>   
+            <input type="text" placeholder="Ingrese usuario" name="usuario">  
+            <label>Clave : </label>   
+            <input type="password" placeholder="Ingrese clave" name="contraseña">
+    <a href="#" onclick="return show('menu','login');"><button type="submit">Ingresar</button></a>
+	<p align="center"><input type="checkbox" checked="checked">Recordarme </p>  
+            <button type="button" class="cancelbtn"> Cancelar</button> 
+           <p align="center"> Olvido la  <a href="#"> clave? </a></p>
+  </div>
+
+
+
+  <div id="menu" style="display:none">
+  <center> <h1> ColeCompras </h1> </center>
+  <p align="center"><b> Selecciona tu rol </p>
+  
+    <a href="#" onclick="return show('profesor','menu');"class="ui-btn">Profesor</a>
+	<a href="#" onclick="return show('directora','menu');"class="ui-btn">Directora</a>	
+	<a href="#" onclick="return show('bodega','menu');"class="ui-btn">Encargado de bodega</a>
+	<a href="#" onclick="return show('recursos','menu');"class="ui-btn">Encargado de recursos</a>
+	<a href="#" onclick="return show('compra','menu');"class="ui-btn">Encargado de compra</a>
+	<a href="#" onclick="return show('login','menu');"class="ui-btn">Logout</a>
+  </div>
+
+
+
+<div id="profesor" style="display:none">
+   <div data-role="header">
+	<a href="#" onclick="return show('menu','profesor');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Profesor</h2>
+	<a href="#" onclick="return show('solicitud','profesor');"class="ui-btn">Realizar solicitud</a>
+	<a href="#" onclick="return show('historial','profesor');"class="ui-btn">Historial solicitudes</a>
+    <footer><p align="right"><a href="#" onclick="return show('login','profesor');">Logout</a></footer>
+  </div>
+  
+  
+  
+<div id="solicitud" style="display:none">
+	<div data-role="header">
+	<a href="#" onclick="return show('profesor','solicitud');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Enviar solicitud</h2>
+	<label for="nombre">Ingrese su nombre:</label>
+	<input type="text" name="nombre" id="nombre" value="">
+	
+	<label for="date">Fecha:</label>
+<input type="date" name="date" id="date" value="">
+	
+	
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" id="row-1-producto" name="row-1-producto" value=""></td>
+                <td><input type="number" id="row-1-cantidad" name="row-1-cantidad" value=""></td>
+                    
+                </select></td>
+            </tr>
+                <tr>
+                <td><input type="text" id="row-2-producto" name="row-2-producto" value=""></td>
+                <td><input type="number" id="row-2-cantidad" name="row-2-cantidad" value=""></td>
+                    
+                </select></td>
+            </tr>
+			<tr>
+                <td><input type="text" id="row-3-producto" name="row-3-producto" value=""></td>
+                <td><input type="number" id="row-3-cantidad" name="row-3-cantidad" value=""></td>
+                    
+                </select></td>
+            </tr>
+			<tr>
+                <td><input type="text" id="row-4-producto" name="row-4-producto" value=""></td>
+                <td><input type="number" id="row-4-cantidad" name="row-4-cantidad" value=""></td>
+                    
+                </select></td>
+            </tr>
+			<tr>
+                <td><input type="text" id="row-4-producto" name="row-4-producto" value=""></td>
+                <td><input type="number" id="row-4-cantidad" name="row-4-cantidad" value=""></td>
+                    
+                </select></td>
+            </tr>
+			<tr>
+                <td><input type="text" id="row-5-producto" name="row-5-producto" value=""></td>
+                <td><input type="number" id="row-5-cantidad" name="row-5-cantidad" value=""></td>
+                    
+                </select></td>
+            </tr>
+    </table>
+	
+	<label for="Motivo">Motivo de solicitud:</label>
+	<textarea cols="40" rows="8" name="motivo" id="motivo"></textarea>
+
+	
+	<a href="#" onclick="return show('popup','solicitud');"><button type="submit">Enviar solicitud</button></a>
+	
+	<footer><p align="right"><a href="#" onclick="return show('login','profesor');">Logout</a></footer>
+  </div>
+
+<div id="popup" style="display:none">
+   <div data-role="header"> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Solicitud enviada</h2>
+    <a href="#" onclick="return show('menu','popup');"><button type="submit">Volver al menu</button></a>
+	<a href="#" onclick="return show('profesor','popup');"><button type="submit">Realizar otra solicitud</button></a>
+  </div>
+
+
+
+<div id="historial" style="display:none">
+   <div data-role="header">
+	<a href="#" onclick="return show('profesor','historial');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Historial</h2>
+	<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>Mari</td>
+					  </tr>
+					  <tr>
+						<th>Fecha:</th>
+						<td>04/10/2020</td>
+					  </tr>
+					  <tr>
+						<th rowspan="3">Productos:</th>
+						<td>temperas (1)</td>
+					  </tr>
+					  <tr>
+						<td>Atril (4)</td>
+					  </tr>
+					  <tr>
+						<td>tela (4)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Los alumnos necesitan desarrollo artistico</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$30.000</td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion:</th>
+						<td>Aprobado</td>
+					  </tr>
+					  <tr>
+						<th>Comentarios:</th>
+						<td>Temperas en existencia, resto se debe comprar</td>
+					  </tr>
+					</table></p></p>
+	<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>Mari</td>
+					  </tr>
+					  <tr>
+						<th>Fecha:</th>
+						<td>18/11/2020</td>
+					  </tr>
+					  <tr>
+						<th rowspan="3">Productos:</th>
+						<td>Resma (1)</td>
+					  </tr>
+					  <tr>
+						<td>Lapices pasta (10)</td>
+					  </tr>
+					  <tr>
+						<td>Corrector (4)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Realizacion de pruebas</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$15.000</td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion:</th>
+						<td>Aprobado</td>
+					  </tr>
+					  <tr>
+						<th>Comentarios:</th>
+						<td>Todo en existencia</td>
+					  </tr>
+					</table>
+	
+	<!-- Aqui deberia acceder a la base de datos, filtrando por su usuario o nombre -->
+    <footer><p align="right"><a href="#" onclick="return show('login','historial');">Logout</a></footer>
+  </div>
+
+
+
+
+<div id="directora" style="display:none">
+   <div data-role="header">
+	<a href="#" onclick="return show('menu','directora');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Directora</h2>
+	
+	<a href="#" onclick="return show('revision directora','directora');"class="ui-btn">Revisar solicitudes</a>
+	<a href="#" onclick="return show('revision cotizaciones','directora');"class="ui-btn">Revisar cotizaciones</a>
+    <footer><p align="right"><a href="#" onclick="return show('login','directora');">Logout</a></footer>
+  </div>
+	
+	
+	<div id="revision directora" style="display:none">
+		   <div data-role="header">
+			<a href="#" onclick="return show('directora','revision directora');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Solicitudes</h2>				
+						<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>Coni</td>
+					  </tr>
+					  <tr>
+						<th>Fecha:</th>
+						<td>04/12/2020</td>
+					  </tr>
+					  <tr>
+						<th rowspan="2">Productos:</th>
+						<td>Proyector (1)</td>
+					  </tr>
+					  <tr>
+						<td>Cartulinas (4)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Los alumnos necesitan apoyo audiovisual</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$230.000</td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion:</th>
+						<td><label for="slider-flip-m"></label>
+							<select name="slider-flip-m" id="slider-flip-m" data-role="slider" data-mini="true">
+					   		 <option value="off">No</option>
+					    	<option value="on" selected="">Si</option></td>
+					  </tr>
+					</table>
+					</table>
+					
+						<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>Mari</td>
+					  </tr>
+					  <tr>
+						<th>Fecha:</th>
+						<td>06/12/2020</td>
+					  </tr>
+					  <tr>
+						<th rowspan="2">Productos:</th>
+						<td>Computador (1)</td>
+					  </tr>
+					  <tr>
+						<td>tablets (5)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Desarrollo informatico</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$650.000</td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion:</th>
+						<td><label for="slider-flip-m"></label>
+							<select name="slider-flip-m" id="slider-flip-m" data-role="slider" data-mini="true">
+					   		 <option value="off">No</option>
+					    	<option value="on" selected="">Si</option></td>
+					  </tr>
+					</table>
+					
+					</table>
+					
+						<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>David</td>
+					  </tr>
+					  <tr>
+						<th rowspan="3">Productos:</th>
+						<td>Pizarra (1)</td>
+					  </tr>
+					  <tr>
+						<td> tizas (4)</td>
+					  </tr>
+					  <tr>
+						<td> Borrador (2)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Desarrollo artistico</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$560.000</td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion:</th>
+						<td><label for="slider-flip-m"></label>
+							<select name="slider-flip-m" id="slider-flip-m" data-role="slider" data-mini="true">
+					   		 <option value="off">No</option>
+					    	<option value="on" selected="">Si</option></td>
+					  </tr>
+					</table>
+
+				<footer><p align="right"><a href="#" onclick="return show('login','directora');">Logout</a></footer>
+			  </div>
+				
+  
+ 
+ 
+		<div id="revision cotizaciones" style="display:none">
+		   <div data-role="header">
+			<a href="#" onclick="return show('directora','revision cotizaciones');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Cotizaciones</h2>
+					<table style="width:100%">
+					  <tr>
+						<th>Cotizaciones</th>
+						<th>Aprobacion</th>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="return show('directora','revision cotizaciones');">Mari</a></td>
+						<td><button type="button">Aprobar</button><button type="button">Rechazar</button></td>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="return show('directora','revision cotizaciones');">David</a></td>
+						<td><button type="button">Aprobar</button><button type="button">Rechazar</button></td>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="return show('directora','revision cotizaciones');">Coni</a></td>
+						<td><button type="button">Aprobar</button><button type="button">Rechazar</button></td>
+					  </tr>
+					</table>
+					
+			<footer><p align="right"><a href="#" onclick="return show('login','directora');">Logout</a></footer>
+		</div>
+  
+  
+  
+  
+  <div id="bodega" style="display:none">
+    <div data-role="header">
+	<a href="#" onclick="return show('menu','bodega');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Bodega</h2>
+	
+	<a href="#" onclick="return show('entregas pendientes','bodega');"class="ui-btn">Entregas pendientes</a>
+	<a href="#" onclick="return show('actualizar inventario','bodega');"class="ui-btn">Actualizar inventario</a>
+    <footer><p align="right"><a href="#" onclick="return show('login','bodega');">Logout</a></footer>
+  </div>
+	
+	
+			<div id="entregas pendientes" style="display:none">
+			<div data-role="header">
+			<a href="#" onclick="return show('bodega','entregas pendientes');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+				<table style="width:100%">
+					  <tr>
+						<th rowspan="3">Mari:</p> <a href="#" onclick="return show('entregas pendientes','bodega');"class="ui-btn">Entregado</a></th>
+						<td>cartulinas (1)</td>
+					  </tr>
+					  <tr>
+						<td> tizas (4)</td>
+					  </tr>
+					  <tr>
+						<td> plumones (2)</td>
+					  </tr>
+					  <tr>
+						<th rowspan="3">Pablo:</p><a href="#" onclick="return show('entregas pendientes','bodega');"class="ui-btn">Entregado</a></th>
+						<td>tijeras (5)</td>
+					  </tr>
+					  <tr>
+						<td> temperas (4)</td>
+					  </tr>
+					  <tr>
+						<td> pinceles (8)</td>
+					  </tr>
+					  <tr>
+						<th rowspan="3">Jose:</p><a href="#" onclick="return show('entregas pendientes','bodega');"class="ui-btn">Entregado</a></th>
+						<td>resmas de papel (1)</td>
+					  </tr>
+					  <tr>
+						<td> lapiz pasta (4)</td>
+					  </tr>
+					  <tr>
+						<td> corrector (2)</td>
+					  </tr>
+					  </table>
+			
+			<footer><p align="right"><a href="#" onclick="return show('login','recursos');">Logout</a></footer>
+		  </div>
+		  
+		  
+			<div id="actualizar inventario" style="display:none">
+			<div data-role="header">
+			<a href="#" onclick="return show('bodega','actualizar inventario');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Actualizar inventario</h2>
+				<label for="materiales">Ecoga elemento a modificar:</label>
+				<select name="materiales" id="materiales">
+				  <option value="lapiz mina">lapiz mina</option>
+				  <option value="pliego cartulina">pliego cartulina</option>
+				  <option value="tiza">tiza</option>
+				  <option value="resma">resma de papel</option>
+				</select>
+				<label for="cantidad">Cantidad:</label>
+				<input type="number" id="cantidad" name="cantidad">
+				</p>
+				<a href="#" onclick="return show('bodega','actualizar inventario');"><button type="submit">actualizar</button></a>
+			
+			<footer><p align="right"><a href="#" onclick="return show('login','recursos');">Logout</a></footer>
+		  </div>
+  
+  
+ 
+
+
+
+
+
+ <div id="recursos" style="display:none">
+    <div data-role="header">
+	<a href="#" onclick="return show('menu','recursos');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Recursos</h2>
+		<a href="#" onclick="return show('revision recursos','recursos');"class="ui-btn">Revisar solicitudes</a>
+		<a href="#" onclick="return show('busqueda','recursos');"class="ui-btn">Busqueda de inventario</a>
+			
+    <footer><p align="right"><a href="#" onclick="return show('login','recursos');">Logout</a></footer>
+  </div>
+  
+  
+			<div id="busqueda" style="display:none">
+			<div data-role="header">
+			<a href="#" onclick="return show('recursos','busqueda');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Busqueda inventario</h2>
+				<label for="search">Buscar:</label>
+				<input type="search" name="password" id="busqueda" value="" placeholder="Busqueda">
+			
+			<footer><p align="right"><a href="#" onclick="return show('login','recursos');">Logout</a></footer>
+			</div>
+		  
+  
+			<div id="revision recursos" style="display:none">
+		   <div data-role="header">
+			<a href="#" onclick="return show('recursos','revision recursos');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Solicitudes</h2>				
+						<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>Coni</td>
+					  </tr>
+					  <tr>
+						<th>Fecha:</th>
+						<td>04/12/2020</td>
+					  </tr>
+					  <tr>
+						<th rowspan="2">Productos:</th>
+						<td>Proyector (1)</td>
+					  </tr>
+					  <tr>
+						<td>Cartulinas (4)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Los alumnos necesitan apoyo audiovisual</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$230.000</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td><input type="number" id="precio estimado" name="precio estimado"></td>
+					  </tr>
+					  <tr>
+						<th>Comentarios:</th>
+						<td><textarea cols="40" rows="8" name="comentarios" id="comentarios"></textarea></td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion recursos:</th>
+						<td><select id="resultado" name="resultado">
+						  <option value="volvo">Aprobado</option>
+						  <option value="saab">Rechazado</option>
+						  <option value="fiat">En existencia</option>
+						</select></td>
+					  </tr>
+					</table>
+					<a href="#" onclick="return show('recursos','revision recursos');"><input type="submit" value="Enviar"></a>
+					
+						<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>Mari</td>
+					  </tr>
+					  <tr>
+						<th>Fecha:</th>
+						<td>06/12/2020</td>
+					  </tr>
+					  <tr>
+						<th rowspan="2">Productos:</th>
+						<td>Computador (1)</td>
+					  </tr>
+					  <tr>
+						<td>tablets (5)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Desarrollo informatico</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$650.000</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td><input type="number" id="precio estimado" name="precio estimado"></td>
+					  </tr>
+					  <tr>
+						<th>Comentarios:</th>
+						<td><textarea cols="40" rows="8" name="comentarios" id="comentarios"></textarea></td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion recursos:</th>
+						<td><select id="resultado" name="resultado">
+						  <option value="volvo">Aprobado</option>
+						  <option value="saab">Rechazado</option>
+						  <option value="fiat">En existencia</option>
+						</select></td>
+					  </tr>
+					</table>
+					<a href="#" onclick="return show('recursos','revision recursos');"><input type="submit" value="Enviar"></a>
+					
+					<table style="width:100%">
+					  <tr>
+						<th>Nombre:</th>
+						<td>David</td>
+					  </tr>
+					  <tr>
+						<th rowspan="3">Productos:</th>
+						<td>Pizarra (1)</td>
+					  </tr>
+					  <tr>
+						<td> tizas (4)</td>
+					  </tr>
+					  <tr>
+						<td> Borrador (2)</td>
+					  </tr>
+					  <tr>
+						<th>Motivo:</th>
+						<td>Desarrollo artistico</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td>$560.000</td>
+					  </tr>
+					  <tr>
+						<th>Precio estimado:</th>
+						<td><input type="number" id="precio estimado" name="precio estimado"></td>
+					  </tr>
+					  <tr>
+						<th>Comentarios:</th>
+						<td><textarea cols="40" rows="8" name="comentarios" id="comentarios"></textarea></td>
+					  </tr>
+					  <tr>
+						<th>Aprobacion recursos:</th>
+						<td><select id="resultado" name="resultado">
+						  <option value="volvo">Aprobado</option>
+						  <option value="saab">Rechazado</option>
+						  <option value="fiat">En existencia</option>
+						</select></td>
+					  </tr>
+					</table>
+					<a href="#" onclick="return show('recursos','revision recursos');"><input type="submit" value="Enviar"></a>
+				<footer><p align="right"><a href="#" onclick="return show('login','directora');">Logout</a></footer>
+			  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div id="compra" style="display:none">
+    <div data-role="header">
+	<a href="#" onclick="return show('menu','compra');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+    <h2><p align="center">Compras</h2>
+	<a href="#" onclick="return show('cotizar','compra');"class="ui-btn">Cotizar solicitud</a>
+	<a href="#" onclick="return show('actualizar inventario2','compra');"class="ui-btn">Actualizar inventario</a>
+    <footer><p align="right"><a href="#" onclick="return show('login','compra');">Logout</a></footer>
+  </div>
+		
+		<div id="cotizar" style="display:none">
+		   <div data-role="header">
+			<a href="#" onclick="return show('compra','cotizar');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Cotizar</h2>
+					<table style="width:100%">
+					  <tr>
+						<th>Solicitud</th>
+						<th>Cotizacion</th>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="return show('compra','cotizar');">Mari</a></td>
+						<td><input type="file"
+						id="avatar" name="avatar"
+						accept="image/png, image/jpeg, file/excel"></td>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="return show('compra','cotizar');">David</a></td>
+						<td><input type="file"
+						id="avatar" name="avatar"
+						accept="image/png, image/jpeg, file/excel"></td>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="return show('compra','cotizar');">Coni</a></td>
+						<td><input type="file"
+						id="avatar" name="avatar"
+						accept="image/png, image/jpeg, file/excel"></td>
+					  </tr>
+					</table>
+					
+			<footer><p align="right"><a href="#" onclick="return show('login','cotizar');">Logout</a></footer>
+		</div>
+		
+		<div id="actualizar inventario2" style="display:none">
+			<div data-role="header">
+			<a href="#" onclick="return show('compra','actualizar inventario2');">Atras</a><center> <h1> ColeCompras </h1> </center></div>
+			<h2><p align="center">Actualizar inventario</h2>
+				<label for="materiales">Ecoga elemento a modificar:</label>
+				<select name="materiales" id="materiales">
+				  <option value="lapiz mina">lapiz mina</option>
+				  <option value="pliego cartulina">pliego cartulina</option>
+				  <option value="tiza">tiza</option>
+				  <option value="resma">resma de papel</option>
+				</select>
+				<label for="cantidad">Cantidad:</label>
+				<input type="number" id="cantidad" name="cantidad">
+				</p>
+				<a href="#" onclick="return show('compra','actualizar inventario2');"><button type="submit">actualizar</button></a>
+			
+			<footer><p align="right"><a href="#" onclick="return show('login','actualizar inventario2');">Logout</a></footer>
+		  </div>
+
+</body>
+</html>
