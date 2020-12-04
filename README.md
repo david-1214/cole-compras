@@ -4,7 +4,7 @@
 
 # agregar un link a una demo del proyecto
 
-# describir los pasos para clonar exitosamente el proyecto y echarlo a andar
+# para clonar exitosamente este proyecto se debe copiar el link "https://github.com/david-1214/cole-compras.git" y clonarlo en visual studio code, luego de esto hay que hacer correr el programa en index.html y elegir en donde abrirlo, se recomienda chrome ya que sirve en cualquier plataforma
 
 # explica que debe ejecutarse para poder descargarlo
 
