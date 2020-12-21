@@ -15,7 +15,7 @@
 **Descripción general:**
 
 	El siguiente programa es una aplicación móvil, utilizable en dispositivos con sistema operativo Android, la cual busca gestionar y agilizar el proceso de compra dentro de instituciones escolares.
-	La oportunidad que permite el desarrollo del presente proyecto surge en una institución llamada " -----"  en donde su directora, quién en es nuestra cliente actual, nos plantea la posibilidad de crear un sistema que sea capaz de producir un rápido y sencillo sistema de compra de artículos fundamentales para un correcto desarrollo de las clases. Asimismo, plantea la posibilidad de producir un inventario organizado, el cual pueda ser visto en cualquier momento que se requiera.
+	La oportunidad que permite el desarrollo del presente proyecto surge en una institución llamada Colegio Ingles Antuquenu  en donde su directora, quién en es nuestra cliente actual, nos plantea la posibilidad de crear un sistema que sea capaz de producir un rápido y sencillo sistema de compra de artículos fundamentales para un correcto desarrollo de las clases. Asimismo, plantea la posibilidad de producir un inventario organizado, el cual pueda ser visto en cualquier momento que se requiera.
 	El diagrama del funcionamiento del funcionamiento de la aplicación se expone a continuación.
 ![Diagrama flujo Aplicación](https://user-images.githubusercontent.com/62665170/102680403-878d0d00-4196-11eb-971f-07b3ae2e7438.png)
 
